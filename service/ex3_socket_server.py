@@ -1,17 +1,24 @@
 import socket
 
-host_ip		= '1.52.48.85'
-host_port	= 12345
+def main():
+	host_ip 	= '1.52.48.85'
+	host_port 	= 12345
 
-def service_connect(host_ip, host_port):
-	s_socket	= socket.socket()
-	s_socket.bind((host_ip, host_port))
-	s_socket.listen(5)
+	s = socket.socket()
+	s.bind((host_ip, host_port))
+
+	s.listen(1)
+	c,addr = s.accept()
+	print("Connection from: " + str(addr))
 	while True:
-		cli, addr = s_socket.accept()
-		print("Hello.", addr)
-		cli.send(b'Hello Client.')
-		print(s_socket.recv(1024))
-		cli.close()
+		data = c.recv(1024)
+		if not data:
+			break
+		print("From connected user: " + str(data))
+		data = str(data).upper()
+		print("Sending: " + str(data))
+		c.send(data)
+	c.close()
 
-service_connect(host_ip, host_port)
+if __name__ == '__main__':
+	main()

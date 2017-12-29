@@ -1,11 +1,19 @@
 import socket
 
-host_ip		= '1.52.48.85'
-host_port	= 12345
-sck = socket.socket()
-host_name = socket.gethostname()
+def main():
+	host_ip		= ''
+	host_port	= ''
 
-sck.connect((host_ip, host_port))
-print(sck.recv(1024))
-sck.send(b'Hell')
-sck.close()
+	s 			= socket.socket()
+	s.connect((host_ip, host_port))
+
+	message		= raw_input(">_")
+	while message !='q':
+		s.send(message)
+		data	= s.recv(1024)
+		print("Received from server: " + str(data))
+		message	= raw_input(">_")
+	s.close()
+
+if __name__ == '__main__':
+	main()
