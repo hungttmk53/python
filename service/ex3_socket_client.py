@@ -1,7 +1,7 @@
 import socket
 
 host_ip		= '1.52.48.85'
-host_port	= '12345'
+host_port	= 12345
 sck = socket.socket()
 host_name = socket.gethostname()
 

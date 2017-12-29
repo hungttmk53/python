@@ -1,7 +1,7 @@
 import socket
 
 host_ip		= '1.52.48.85'
-host_port	= '12345'
+host_port	= 12345
 
 def service_connect(host_ip, host_port):
 	s_socket	= socket.socket()
