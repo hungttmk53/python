@@ -7,5 +7,5 @@ host_name = socket.gethostname()
 
 sck.connect((host_ip, host_port))
 print(sck.recv(1024))
-sck.send('Hell')
+sck.send(b'Hell')
 sck.close()
