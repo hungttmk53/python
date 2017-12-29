@@ -11,6 +11,7 @@ def service_connect(host_ip, host_port):
 		cli, addr = s_socket.accept()
 		print("Hello.", addr)
 		cli.send(b'Hello Client.')
+		print(s_socket.recv(1024))
 		cli.close()
 
 service_connect(host_ip, host_port)
