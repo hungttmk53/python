@@ -1,8 +1,10 @@
 import socket
+
+host_ip		= '1.52.48.85'
+host_port	= '12345'
 sck = socket.socket()
 host_name = socket.gethostname()
-host_ip = '1.52.48.85'
-port_num = 12345
-sck.connect((host_ip, port_num))
+
+sck.connect((host_ip, host_port))
 print(sck.recv(1024))
 sck.close()
