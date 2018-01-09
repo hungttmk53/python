@@ -12,7 +12,7 @@ def main():
 	while True:
 		data,addr = s.recvfrom(1024)
 		print("message From: " + str(addr))
-		print("from connection user: " = str(data))
+		print("from connection user: " + str(data))
 		data = str(data).upper()
 		print("sending: " + str(data))
 		s.sendto(data,addr)
