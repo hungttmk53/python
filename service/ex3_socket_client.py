@@ -1,18 +1,19 @@
 import socket
 
 def main():
-	host_ip		= ''
-	host_port	= ''
+	host_ip		= '1.52.48.85'
+	host_port	= 12345
 
 	s 			= socket.socket()
-	s.connect((host_ip, host_port))
+	s.bind((host_ip, host_port))
 
-	message		= raw_input(">_")
+	message		= input(">_")
+	message		= str(message)
 	while message !='q':
 		s.send(message)
 		data	= s.recv(1024)
-		print("Received from server: " + str(data))
-		message	= raw_input(">_")
+		print(b"Received from server: " + str(data))
+		message	= input(">_")
 	s.close()
 
 if __name__ == '__main__':
