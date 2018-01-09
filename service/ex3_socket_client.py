@@ -1,17 +1,18 @@
 import socket
 
 def main():
-	host_ip		= '1.52.48.85'
-	host_port	= 12345
+	host_ip		= 'localhost'
+	host_port	= 12346
+	server		= ('1.52.48.85',12345)
 
-	s 			= socket.socket()
+	s 			= socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 	s.bind((host_ip, host_port))
 
 	message		= input(">_")
-	message		= str(message)
+	
 	while message !='q':
-		s.send(message)
-		data	= s.recv(1024)
+		s.sendto(message,server)
+		data,addr	= s.recvfrom(1024)
 		print(b"Received from server: " + str(data))
 		message	= input(">_")
 	s.close()
