@@ -15,5 +15,6 @@ while True:
 	name = input("Enter name: ")
 	name = name.encode('utf-8')
 	c.send(name)
+	print('Hello ', c.recv(1024))
 
 c.close()
