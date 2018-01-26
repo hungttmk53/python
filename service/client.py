@@ -10,6 +10,11 @@ s.connect((host, port))
 string_send = input("Enter name: ")
 string_send = string_send.encode('utf-8')
 s.send(string_send)
-print('Hello', s.recv(1024))
+
+while True:
+	string_send = input("Enter name: ")
+	string_send = string_send.encode('utf-8')
+	s.send(string_send)
+	print('Hello', s.recv(1024))
 
 s.close()

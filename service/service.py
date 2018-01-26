@@ -11,8 +11,9 @@ s.listen(5)
 c, addr = s.accept()
 print('Ket noi tu: ', addr)
 print('Hello ', c.recv(1024))
-name = input("Enter name: ")
-name = name.encode('utf-8')
-c.send(name)
+while True:
+	name = input("Enter name: ")
+	name = name.encode('utf-8')
+	c.send(name)
 
 c.close()
