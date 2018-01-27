@@ -5,16 +5,17 @@ s = socket.socket()
 host ='1.52.48.85'
 port = 12345
 s.bind((host,port))
-
 s.listen(5)
 
 c, addr = s.accept()
+
 print('Ket noi tu: ', addr)
-print('Hello ', c.recv(1024))
+c.send(b'Xin chao ban. Toi la Server')
+
 while True:
-	name = input("Enter name: ")
+	print(c.recv(1024))
+	name = input("Server: ")
 	name = name.encode('utf-8')
 	c.send(name)
-	print('Hello ', c.recv(1024))
 
 c.close()
