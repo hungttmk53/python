@@ -10,7 +10,7 @@ s.listen(5)
 c, addr = s.accept()
 
 Enter_Option = "Enter option: 1. Check OS \n 2. Check RAM \n 3. Check Disk \n 4. Check CPU"
-Enter_Option = string_send.encode('utf-8')
+Enter_Option = Enter_Option.encode('utf-8')
 
 print('Connection from : ', addr)
 c.send(Enter_Option)
