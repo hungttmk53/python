@@ -9,12 +9,12 @@ s.listen(5)
 
 c, addr = s.accept()
 
+Enter_Option = "Enter option: 1. Check OS \n 2. Check RAM \n 3. Check Disk \n 4. Check CPU"
+Enter_Option = string_send.encode('utf-8')
+
 print('Connection from : ', addr)
-c.send(b'Enter option: ')
-c.send(b'1. Check OS')
-c.send(b'2. Check RAM')
-c.send(b'3. Check Disk')
-c.send(b'4. Check CPU')
+c.send(Enter_Option)
+
 
 # while True:
 # 	print(c.recv(1024))
